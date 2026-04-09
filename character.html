@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>우리 반 캐릭터 키우기 - 사용 메뉴얼</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #4FB585;
+  --primary-light: #7DD5A8;
+  --primary-dark: #3A9B6E;
+  --primary-bg: #EAF7EF;
+  --cream: #FFF8E7;
+  --coral: #FF9B85;
+  --text: #2D3436;
+  --text-soft: #636E72;
+  --border: #D8E8DE;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #F6FAF7;
+  color: var(--text);
+  line-height: 1.7;
+  padding: 40px 20px;
+}
+
+.page {
+  max-width: 820px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(79, 181, 133, 0.12);
+  overflow: hidden;
+}
+
+.cover {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  padding: 50px 50px 40px;
+  text-align: center;
+  position: relative;
+}
+
+.cover::before {
+  content: '🌱';
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+.cover::after {
+  content: '✨';
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+.cover h1 {
+  font-family: 'Jua', sans-serif;
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.cover p {
+  font-size: 1.05rem;
+  opacity: 0.95;
+}
+
+.cover .url-box {
+  margin-top: 22px;
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  word-break: break-all;
+}
+
+.content {
+  padding: 40px 50px 50px;
+}
+
+.section {
+  margin-bottom: 36px;
+}
+
+.section h2 {
+  font-family: 'Jua', sans-serif;
+  font-size: 1.5rem;
+  color: var(--primary-dark);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 2.5px dashed var(--primary-light);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section h3 {
+  font-size: 1.1rem;
+  color: var(--primary-dark);
+  margin: 18px 0 8px;
+  font-weight: 700;
+}
+
+.section p {
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.intro-card {
+  background: var(--primary-bg);
+  border-left: 4px solid var(--primary);
+  padding: 18px 22px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+.intro-card strong {
+  color: var(--primary-dark);
+}
+
+.steps {
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 16px 18px 16px 60px;
+  margin-bottom: 12px;
+  background: #FAFDFB;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Jua', sans-serif;
+  font-size: 1.05rem;
+}
+
+.steps li b {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--primary-dark);
+  font-size: 1.02rem;
+}
+
+.steps li small {
+  color: var(--text-soft);
+  font-size: 0.92rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.feature-card {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+.feature-card .emoji {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.feature-card .title {
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 4px;
+  font-size: 0.98rem;
+}
+
+.feature-card .desc {
+  color: var(--text-soft);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.warning {
+  background: #FFF4E6;
+  border-left: 4px solid #FFA94D;
+  padding: 18px 22px;
+  border-radius: 12px;
+  margin: 14px 0;
+}
+
+.warning h3 {
+  color: #D97706;
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+.warning ul {
+  margin-left: 18px;
+  color: #92400E;
+}
+
+.warning li {
+  margin-bottom: 6px;
+  font-size: 0.94rem;
+}
+
+.tip {
+  background: #E6F4FF;
+  border-left: 4px solid #4DABF7;
+  padding: 16px 22px;
+  border-radius: 12px;
+  margin: 14px 0;
+  font-size: 0.94rem;
+  color: #1E3A8A;
+}
+
+.tip strong { color: #1E40AF; }
+
+.qa {
+  margin-top: 14px;
+}
+
+.qa-item {
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 10px;
+  background: #FAFDFB;
+}
+
+.qa-item .q {
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 6px;
+}
+
+.qa-item .q::before {
+  content: 'Q. ';
+  color: var(--coral);
+}
+
+.qa-item .a {
+  color: var(--text);
+  font-size: 0.94rem;
+  padding-left: 18px;
+}
+
+.qa-item .a::before {
+  content: 'A. ';
+  margin-left: -18px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.footer {
+  text-align: center;
+  padding: 26px;
+  background: var(--primary-bg);
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  border-top: 1px dashed var(--border);
+}
+
+.footer .heart {
+  color: var(--coral);
+}
+
+.back-btn {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  background: white;
+  color: var(--primary-dark);
+  border: 2px solid var(--primary);
+  padding: 11px 22px;
+  border-radius: 30px;
+  font-family: 'Jua', sans-serif;
+  font-size: 0.98rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(79, 181, 133, 0.25);
+  text-decoration: none;
+  transition: all 0.2s;
+  z-index: 100;
+}
+
+.back-btn:hover {
+  transform: translateY(-2px);
+  background: var(--primary-bg);
+  box-shadow: 0 6px 20px rgba(79, 181, 133, 0.35);
+}
+
+.print-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 30px;
+  font-family: 'Jua', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(79, 181, 133, 0.4);
+  transition: all 0.2s;
+}
+
+.print-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(79, 181, 133, 0.5);
+}
+
+@media print {
+  @page { margin: 14mm 12mm; }
+  body { background: white; padding: 0; }
+  .page { box-shadow: none; border-radius: 0; }
+  .print-btn { display: none; }
+  .back-btn { display: none; }
+
+  /* 명시적 페이지 나눔: print-page 클래스로 관리 */
+  .print-page {
+    page-break-before: always;
+  }
+  .print-page:first-of-type {
+    page-break-before: avoid;
+  }
+
+  /* 커버를 첫 페이지에 단독 배치 */
+  .cover {
+    page-break-after: always;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 페이지 안에서 요소가 잘리지 않도록 */
+  .steps li { page-break-inside: avoid; }
+  .feature-card { page-break-inside: avoid; }
+  .qa-item { page-break-inside: avoid; }
+  .warning { page-break-inside: avoid; }
+  .tip { page-break-inside: avoid; }
+  .intro-card { page-break-inside: avoid; }
+  .section { page-break-inside: avoid; }
+
+  /* 인쇄 시 간격 최적화 */
+  .content { padding: 24px 36px 30px; }
+  .section { margin-bottom: 20px; }
+  .section h2 { font-size: 1.35rem; margin-bottom: 10px; }
+  .steps li { padding: 10px 12px 10px 50px; margin-bottom: 6px; }
+  .steps li::before { width: 28px; height: 28px; font-size: 0.95rem; left: 14px; }
+  .feature-grid { gap: 8px; }
+  .feature-card { padding: 10px 14px; }
+  .qa-item { padding: 10px 14px; margin-bottom: 6px; }
+  .qa-item .q { font-size: 0.92rem; margin-bottom: 3px; }
+  .qa-item .a { font-size: 0.88rem; }
+  .warning { padding: 14px 18px; }
+  .warning li { margin-bottom: 4px; font-size: 0.88rem; }
+  .tip { padding: 12px 18px; font-size: 0.88rem; }
+  .intro-card { padding: 14px 18px; }
+  .section h3 { margin: 12px 0 6px; font-size: 1rem; }
+  .section p { font-size: 0.92rem; margin-bottom: 8px; }
+
+  .footer { page-break-before: auto; margin-top: 0; }
+}
+
+@media (max-width: 600px) {
+  .content { padding: 30px 24px; }
+  .cover { padding: 40px 24px 30px; }
+  .cover h1 { font-size: 1.8rem; }
+  .feature-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<a class="back-btn" href="index.html">← 메뉴얼 모음</a>
+
+<div class="page">
+  <div class="cover">
+    <h1>우리 반 캐릭터 키우기</h1>
+    <p>학급 칭찬으로 함께 키우는 우리만의 캐릭터 🌱</p>
+    <div class="url-box">https://miynuees.github.io/class-character-share/</div>
+  </div>
+
+  <div class="content">
+
+    <!-- 페이지 2: 소개 + 시작 방법 -->
+    <div class="print-page">
+    <div class="section">
+      <h2>🌟 어떤 도구인가요?</h2>
+      <div class="intro-card">
+        <p><strong>우리 반이 함께 칭찬을 모아서 캐릭터를 키우는 학급 운영 게임</strong>이에요. 학생 개개인이 아니라 <strong>반 전체</strong>가 한 마음으로 한 캐릭터를 키워나가요.</p>
+        <p style="margin-top:8px;">알에서 시작해서 칭찬을 받을 때마다 포인트가 쌓이고, 5단계까지 성장해요. 한 캐릭터를 다 키우면 명예의 전당에 보관되고, 새 알을 다시 골라서 키울 수 있어요. 총 4종류의 캐릭터를 모두 모으는 게 목표예요!</p>
+      </div>
+      <div class="tip"><strong>💡 추천 사용 환경:</strong> 교실 전자칠판 (가로 와이드 화면 + 터치 입력에 최적화되어 있어요)</div>
+    </div>
+
+    <div class="section">
+      <h2>🚀 시작하는 방법</h2>
+      <ol class="steps">
+        <li>
+          <b>전자칠판 브라우저(크롬/엣지)로 사이트 열기</b>
+          <small>위에 있는 주소를 주소창에 입력하세요. 즐겨찾기에 추가해두면 편해요!</small>
+        </li>
+        <li>
+          <b>알 4개 중 하나를 골라서 이름 지어주기</b>
+          <small>알 안에 어떤 캐릭터가 있을지는 비밀! 색깔만 보고 골라요. (예: '무럭이', '복덩이' 등 학급 분위기에 어울리는 이름)</small>
+        </li>
+        <li>
+          <b>학급 활동 중 칭찬할 일이 생기면 칭찬 버튼 누르기</b>
+          <small>오른쪽 칭찬 폼에서 ① 칭찬 종류 선택 → ② 포인트 선택 → ③ 선생님 서명 → ④ '칭찬 주기' 버튼</small>
+        </li>
+        <li>
+          <b>레벨업과 완성을 함께 축하하기</b>
+          <small>레벨이 오를 때마다 변신해요! 100포인트를 채우면 완전체가 되고 명예의 전당에 보관돼요.</small>
+        </li>
+        <li>
+          <b>새 알을 골라서 다음 캐릭터 키우기</b>
+          <small>4종을 모두 모으면 컬렉션 완성! (드래곤, 여우, 유니콘, 펭귄)</small>
+        </li>
+      </ol>
+    </div>
+    </div>
+
+    <!-- 페이지 3: 바로가기 등록 -->
+    <div class="print-page">
+    <div class="section">
+      <h2>🖥️ 전자칠판 바탕화면에 바로가기 등록하기</h2>
+      <p>매번 주소를 입력하지 않아도, 바탕화면 아이콘 하나로 바로 열 수 있어요!</p>
+
+      <h3>방법 1. 크롬(Chrome)인 경우</h3>
+      <ol class="steps">
+        <li>
+          <b>크롬으로 사이트 접속</b>
+          <small>주소창에 사이트 주소를 입력해서 들어가세요.</small>
+        </li>
+        <li>
+          <b>오른쪽 위 점 세 개(⋮) 메뉴 클릭</b>
+          <small>브라우저 우측 상단에 있는 메뉴 버튼이에요.</small>
+        </li>
+        <li>
+          <b>'전송 및 저장' → '바로가기 만들기' 클릭</b>
+          <small>메뉴 안에서 찾아주세요. (크롬 버전에 따라 '도구 더보기' → '바로가기 만들기'일 수도 있어요)</small>
+        </li>
+        <li>
+          <b>이름을 '우리 반 캐릭터'로 바꾸고 '만들기' 클릭</b>
+          <small>바탕화면에 바로가기 아이콘이 생겨요! 더블클릭하면 바로 열려요.</small>
+        </li>
+      </ol>
+
+      <h3>방법 2. 엣지(Edge)인 경우</h3>
+      <ol class="steps">
+        <li>
+          <b>엣지로 사이트 접속</b>
+          <small>주소창에 사이트 주소를 입력해서 들어가세요.</small>
+        </li>
+        <li>
+          <b>오른쪽 위 점 세 개(⋯) 메뉴 클릭</b>
+          <small>브라우저 우측 상단에 있는 메뉴 버튼이에요.</small>
+        </li>
+        <li>
+          <b>'앱' → '이 사이트를 앱으로 설치' 클릭</b>
+          <small>팝업이 나오면 '설치'를 눌러주세요.</small>
+        </li>
+        <li>
+          <b>바탕화면에 아이콘이 자동 생성!</b>
+          <small>앱처럼 깔끔하게 열려요. 주소창 없이 전체 화면으로 쓸 수 있어서 전자칠판에 더 좋아요.</small>
+        </li>
+      </ol>
+
+      <div class="tip">
+        <strong>💡 엣지 앱 설치를 추천해요!</strong> 주소창이나 탭 없이 앱처럼 열려서 전자칠판 화면을 더 넓게 쓸 수 있어요. 실수로 다른 페이지로 이동할 걱정도 없고요.
+      </div>
+    </div>
+    </div>
+
+    <!-- 페이지 4: 주요 기능 + 데이터 저장 -->
+    <div class="print-page">
+    <div class="section">
+      <h2>🎁 주요 기능</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="emoji">🥚</div>
+          <div class="title">5단계 성장</div>
+          <div class="desc">알 → 깨어남 → 아기 → 청년 → 전설로 점점 변신해요</div>
+        </div>
+        <div class="feature-card">
+          <div class="emoji">⭐</div>
+          <div class="title">빠른 칭찬 6가지</div>
+          <div class="desc">수업 참여, 협력, 인사 등 자주 쓰는 칭찬을 한 번에 선택</div>
+        </div>
+        <div class="feature-card">
+          <div class="emoji">✍️</div>
+          <div class="title">선생님 서명</div>
+          <div class="desc">칭찬마다 직접 사인해서 진정성 있는 기록을 남겨요</div>
+        </div>
+        <div class="feature-card">
+          <div class="emoji">🏆</div>
+          <div class="title">명예의 전당</div>
+          <div class="desc">완성한 캐릭터들을 헤더 🏆 버튼으로 모아볼 수 있어요</div>
+        </div>
+        <div class="feature-card">
+          <div class="emoji">🔥</div>
+          <div class="title">연속 칭찬 기록</div>
+          <div class="desc">며칠 연속 칭찬했는지 자동 카운트</div>
+        </div>
+        <div class="feature-card">
+          <div class="emoji">📊</div>
+          <div class="title">통계 보기</div>
+          <div class="desc">어떤 칭찬을 가장 많이 받았는지 한눈에 확인</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>💾 데이터 저장에 대해</h2>
+      <p>이 도구는 <strong>각 전자칠판 안에만</strong> 데이터가 저장돼요. 인터넷 서버에 올라가지 않아서 개인정보 걱정이 없고, 학급별로 완전히 독립적으로 운영돼요.</p>
+
+      <div class="warning">
+        <h3>⚠️ 꼭 알아두실 점</h3>
+        <ul>
+          <li><strong>같은 컴퓨터에서 브라우저를 바꾸면</strong> 데이터가 따로 저장돼요. 항상 같은 브라우저(예: 크롬)로 접속해 주세요.</li>
+          <li><strong>시크릿/InPrivate 모드는 사용 금지!</strong> 창을 닫으면 모든 데이터가 사라져요.</li>
+          <li><strong>브라우저 '사이트 데이터 삭제'</strong>를 누르면 칭찬 기록이 모두 날아가요. 청소 작업할 때 주의하세요.</li>
+          <li><strong>안전을 위해 정기적으로 백업</strong>을 권장해요. (⚙️ 설정 → 데이터 내보내기)</li>
+        </ul>
+      </div>
+
+      <div class="tip">
+        <strong>💾 백업하는 방법:</strong> 헤더 우측 ⚙️ 버튼 → '데이터 내보내기' 클릭 → JSON 파일이 다운로드돼요. 학기 말이나 중요한 시점에 한 번씩 내보내서 USB나 클라우드에 보관해두세요. 복원도 같은 메뉴에서 '데이터 가져오기'로 가능해요.
+      </div>
+    </div>
+    </div>
+
+    <!-- 페이지 5: 활용 팁 + FAQ -->
+    <div class="print-page">
+    <div class="section">
+      <h2>💡 활용 팁</h2>
+      <div class="feature-card" style="margin-bottom:10px;">
+        <div class="title">🎯 학기 시작 시</div>
+        <div class="desc">첫 알을 학생들과 함께 골라보세요. 이름도 학급회의로 정하면 애착이 생겨요!</div>
+      </div>
+      <div class="feature-card" style="margin-bottom:10px;">
+        <div class="title">📅 매일 사용</div>
+        <div class="desc">조회나 종례 시간에 그날의 칭찬을 기록하면 일상이 돼요. 연속 기록 🔥 배지를 노려보세요!</div>
+      </div>
+      <div class="feature-card" style="margin-bottom:10px;">
+        <div class="title">🌟 특별한 날</div>
+        <div class="desc">캐릭터 완성 순간에는 학급 전체가 함께 축하 박수! 명예의 전당에 추가되는 모습을 함께 보세요.</div>
+      </div>
+      <div class="feature-card">
+        <div class="title">📝 칭찬 종류 6가지</div>
+        <div class="desc">👏 수업 열심히 / 🎤 적극 참여 / 📝 과제 제출 / 💖 인사 / 🏆 협력 / 📚 자습</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>❓ 자주 묻는 질문</h2>
+      <div class="qa">
+        <div class="qa-item">
+          <div class="q">다른 학교나 다른 반의 데이터와 섞이지 않나요?</div>
+          <div class="a">절대 섞이지 않아요. 데이터는 각 컴퓨터 브라우저 안에만 저장되어서, 우리 반 전자칠판은 우리 반 데이터만 가지고 있어요.</div>
+        </div>
+        <div class="qa-item">
+          <div class="q">집에서 미리 칭찬을 기록해둘 수 있나요?</div>
+          <div class="a">가능하지만, 집 컴퓨터와 학교 전자칠판은 별개로 작동해요. 합치고 싶다면 '데이터 내보내기'로 백업한 후 다른 곳에서 '데이터 가져오기'를 해야 해요.</div>
+        </div>
+        <div class="qa-item">
+          <div class="q">실수로 칭찬을 기록했어요. 취소할 수 있나요?</div>
+          <div class="a">개별 칭찬 삭제 기능은 없어요. 큰 실수라면 백업해둔 이전 데이터를 복원하는 방법이 있어요.</div>
+        </div>
+        <div class="qa-item">
+          <div class="q">캐릭터를 완성하기 전에 다른 알로 바꿀 수 있나요?</div>
+          <div class="a">현재 캐릭터를 키우는 중에는 자동으로 바뀌지 않아요. 완성한 후 다음 알을 고를 때 새 캐릭터를 시작할 수 있어요.</div>
+        </div>
+        <div class="qa-item">
+          <div class="q">학급에 따라 칭찬 종류를 바꿀 수 있나요?</div>
+          <div class="a">현재는 6가지로 고정되어 있지만, '직접 입력' 칸에 원하는 칭찬 내용을 자유롭게 적어서 사용할 수 있어요.</div>
+        </div>
+        <div class="qa-item">
+          <div class="q">스마트폰으로도 사용 가능한가요?</div>
+          <div class="a">가능하지만, 가로로 넓은 화면(전자칠판/태블릿)에 최적화되어 있어요. 학급 활동용이라 큰 화면을 권장해요.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    함께 키우는 우리 반 캐릭터, 매일이 작은 축제가 되기를 <span class="heart">♥</span><br>
+    <small style="opacity:0.7; margin-top:6px; display:inline-block;">문의 사항이 있으시면 공유해주신 선생님께 연락 부탁드려요</small>
+  </div>
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨️ 인쇄하기</button>
+
+</body>
+</html>
