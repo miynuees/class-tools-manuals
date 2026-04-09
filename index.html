@@ -166,30 +166,14 @@ body {
   color: var(--text-soft);
 }
 
-.footer .message {
-  margin-bottom: 14px;
-}
-
-.footer .credit {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 18px;
-  background: white;
-  border: 1.5px solid var(--border-soft);
-  border-radius: 30px;
-  font-size: 0.82rem;
-  color: var(--text-soft);
-}
-
-.footer .credit b {
-  color: var(--text);
-  font-weight: 700;
-}
-
-.footer .credit .x {
+.footer .dot {
+  display: inline-block;
+  margin: 0 8px;
   opacity: 0.4;
-  font-size: 0.78rem;
+}
+
+.footer .by {
+  opacity: 0.75;
 }
 
 @media (max-width: 860px) {
@@ -243,10 +227,7 @@ body {
   </div>
 
   <div class="footer">
-    <div class="message">교실의 매일이 조금 더 즐겁기를 ♥</div>
-    <div class="credit">
-      <b>세니쌤</b> <span class="x">×</span> <b>Claude Code</b> 가 함께 만들었어요
-    </div>
+    교실의 매일이 조금 더 즐겁기를 ♥<span class="dot">·</span><span class="by">세니쌤 &amp; Claude Code</span>
   </div>
 
 </div>
