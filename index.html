@@ -3,300 +3,190 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>교실 도구 메뉴얼 모음</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+<title>교실 도구 메뉴얼</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg: #FAF8F3;
-  --bg-soft: #FFFDF8;
+  --bg: #FAFAF7;
   --text: #2D3436;
-  --text-soft: #636E72;
-  --border: #ECE5D8;
-  --coral: #FF9B85;
-  --gold: #F4B400;
+  --text-soft: #8B8B8B;
+  --border: #ECEAE3;
+  --border-soft: #F2F0E9;
 }
+
+html, body { height: 100%; }
 
 body {
   font-family: 'Noto Sans KR', sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
-  min-height: 100vh;
-  padding: 40px 20px;
-  background-image:
-    radial-gradient(circle at 10% 20%, rgba(79, 181, 133, 0.06) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(69, 170, 242, 0.06) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(255, 211, 42, 0.04) 0%, transparent 50%);
+  -webkit-font-smoothing: antialiased;
 }
 
 .wrap {
-  max-width: 920px;
+  max-width: 1040px;
   margin: 0 auto;
+  padding: 80px 28px 60px;
 }
 
 .hero {
   text-align: center;
-  padding: 50px 30px 40px;
+  margin-bottom: 64px;
 }
 
-.hero .badge {
+.hero .label {
   display: inline-block;
-  background: white;
-  border: 2px solid var(--border);
-  padding: 7px 20px;
-  border-radius: 30px;
-  font-size: 0.88rem;
+  font-size: 0.78rem;
+  letter-spacing: 3px;
   color: var(--text-soft);
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: 18px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+  text-transform: uppercase;
 }
 
 .hero h1 {
   font-family: 'Jua', sans-serif;
-  font-size: 2.8rem;
-  letter-spacing: -1px;
+  font-size: 2.6rem;
+  letter-spacing: -0.5px;
   margin-bottom: 14px;
-  background: linear-gradient(135deg, #4FB585 0%, #45aaf2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text);
+  font-weight: 400;
 }
 
 .hero p {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-soft);
-  max-width: 560px;
-  margin: 0 auto 8px;
-}
-
-.hero .sub {
-  font-size: 0.92rem;
-  color: var(--text-soft);
-  opacity: 0.7;
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 22px;
-  margin-top: 20px;
 }
 
 .card {
   background: white;
-  border-radius: 22px;
-  padding: 32px 36px;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
-  border: 1.5px solid var(--border);
-  display: flex;
-  align-items: center;
-  gap: 28px;
+  border-radius: 20px;
+  padding: 38px 28px 32px;
+  border: 1.5px solid var(--border-soft);
   text-decoration: none;
   color: inherit;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  overflow: hidden;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 100%;
-  background: var(--card-color);
-  transition: width 0.25s;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 40px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
   border-color: var(--card-color);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
 }
 
-.card:hover::before {
-  width: 10px;
-}
-
-.card-emoji {
-  font-size: 4.2rem;
-  flex-shrink: 0;
-  width: 110px;
-  height: 110px;
+.card-icon {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--card-bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--card-bg);
-  border-radius: 24px;
-  transition: transform 0.25s;
+  font-size: 2.6rem;
+  margin-bottom: 22px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.card:hover .card-emoji {
-  transform: scale(1.08) rotate(-4deg);
-}
-
-.card-body {
-  flex: 1;
-  min-width: 0;
-}
-
-.card-tag {
-  display: inline-block;
-  background: var(--card-bg);
-  color: var(--card-color);
-  font-size: 0.78rem;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 12px;
-  margin-bottom: 8px;
-  letter-spacing: 0.5px;
+.card:hover .card-icon {
+  transform: scale(1.08) rotate(-5deg);
 }
 
 .card h2 {
   font-family: 'Jua', sans-serif;
-  font-size: 1.7rem;
-  margin-bottom: 6px;
+  font-size: 1.35rem;
+  margin-bottom: 10px;
   color: var(--text);
-  letter-spacing: -0.3px;
+  font-weight: 400;
+  letter-spacing: -0.2px;
 }
 
 .card .desc {
+  font-size: 0.92rem;
   color: var(--text-soft);
-  font-size: 0.95rem;
-  margin-bottom: 14px;
-  line-height: 1.6;
+  line-height: 1.7;
+  margin-bottom: 26px;
+  flex: 1;
 }
 
-.card-actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.btn-manual {
-  background: var(--card-color);
-  color: white;
-  padding: 10px 22px;
-  border-radius: 30px;
-  font-family: 'Jua', sans-serif;
-  font-size: 0.95rem;
-  text-decoration: none;
+.card .more {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: all 0.2s;
-}
-
-.btn-manual:hover {
-  filter: brightness(1.08);
-  box-shadow: 0 4px 16px var(--card-shadow);
-}
-
-.btn-tool {
-  background: white;
-  color: var(--card-color);
-  border: 2px solid var(--card-color);
-  padding: 8px 18px;
-  border-radius: 30px;
-  font-family: 'Jua', sans-serif;
   font-size: 0.9rem;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.2s;
+  font-weight: 700;
+  color: var(--card-color);
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid transparent;
+  transition: border-color 0.2s, gap 0.2s;
 }
 
-.btn-tool:hover {
-  background: var(--card-bg);
+.card:hover .more {
+  border-color: var(--card-color);
+  gap: 10px;
 }
 
-/* 카드별 색상 변수 */
+/* 카드별 색상 */
 .card-character {
   --card-color: #4FB585;
-  --card-bg: #EAF7EF;
-  --card-shadow: rgba(79, 181, 133, 0.35);
+  --card-bg: #F0F8F4;
 }
 
 .card-roles {
   --card-color: #5BA8E0;
-  --card-bg: #E8F2FB;
-  --card-shadow: rgba(91, 168, 224, 0.35);
+  --card-bg: #F0F6FB;
 }
 
 .card-cleaning {
   --card-color: #45aaf2;
-  --card-bg: #E8F4FF;
-  --card-shadow: rgba(69, 170, 242, 0.35);
-}
-
-.info-section {
-  background: white;
-  border: 1.5px solid var(--border);
-  border-radius: 20px;
-  padding: 26px 32px;
-  margin-top: 36px;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.info-section .icon {
-  font-size: 2rem;
-  flex-shrink: 0;
-}
-
-.info-section .text {
-  font-size: 0.95rem;
-  color: var(--text-soft);
-  line-height: 1.65;
-}
-
-.info-section .text strong {
-  color: var(--text);
+  --card-bg: #EFF6FE;
 }
 
 .footer {
   text-align: center;
-  margin-top: 40px;
-  padding: 26px 20px;
+  margin-top: 70px;
+  font-size: 0.85rem;
   color: var(--text-soft);
-  font-size: 0.88rem;
 }
 
-.footer .heart {
-  color: var(--coral);
+.footer .divider {
+  display: inline-block;
+  width: 30px;
+  height: 1px;
+  background: var(--border);
+  vertical-align: middle;
+  margin: 0 12px;
 }
 
-.footer .made {
-  margin-top: 6px;
-  opacity: 0.65;
-  font-size: 0.82rem;
-}
-
-@media (max-width: 680px) {
-  .hero { padding: 30px 16px 24px; }
+@media (max-width: 860px) {
+  .wrap { padding: 60px 24px 40px; }
+  .cards { grid-template-columns: 1fr; gap: 18px; max-width: 480px; margin: 0 auto; }
+  .hero { margin-bottom: 44px; }
   .hero h1 { font-size: 2.1rem; }
-  .hero p { font-size: 0.95rem; }
-  .card {
-    flex-direction: column;
-    text-align: center;
-    padding: 28px 24px;
-    gap: 18px;
-  }
-  .card-emoji {
-    width: 96px;
-    height: 96px;
-    font-size: 3.6rem;
-  }
-  .card-actions { justify-content: center; }
-  .info-section { flex-direction: column; text-align: center; padding: 22px; }
+  .card { padding: 32px 24px 28px; }
+}
+
+@media (max-width: 540px) {
+  .wrap { padding: 50px 20px 36px; }
+  .hero h1 { font-size: 1.85rem; }
+  .hero p { font-size: 0.93rem; }
 }
 </style>
 </head>
@@ -305,66 +195,38 @@ body {
 <div class="wrap">
 
   <div class="hero">
-    <div class="badge">📚 학급 운영 도구 메뉴얼 모음</div>
-    <h1>교실에서 바로 쓰는<br>우리 반 운영 도구들</h1>
-    <p>아이들과 함께 쓸 수 있는 작은 웹 도구들이에요. 아래 카드를 눌러서 각 도구의 사용 메뉴얼을 확인하세요.</p>
-    <p class="sub">설치 없이 브라우저에서 바로 사용 · 무료 · 학급 데이터는 우리 컴퓨터에만 저장</p>
+    <div class="label">CLASSROOM TOOLS</div>
+    <h1>교실 도구 메뉴얼</h1>
+    <p>학급 운영에 함께 쓰는 작은 웹 도구들의 사용 안내서입니다.</p>
   </div>
 
   <div class="cards">
 
     <a class="card card-character" href="character.html">
-      <div class="card-emoji">🐣</div>
-      <div class="card-body">
-        <span class="card-tag">학급 칭찬 게임</span>
-        <h2>우리 반 캐릭터 키우기</h2>
-        <p class="desc">반 전체가 함께 칭찬을 모아 캐릭터를 5단계까지 성장시키는 학급 운영 게임. 4종류 캐릭터 컬렉션 + 명예의 전당.</p>
-        <div class="card-actions">
-          <span class="btn-manual">📖 메뉴얼 보기</span>
-          <a class="btn-tool" href="https://miynuees.github.io/class-character-share/" target="_blank" onclick="event.stopPropagation()">🔗 도구 열기</a>
-        </div>
-      </div>
+      <div class="card-icon">🐣</div>
+      <h2>우리 반 캐릭터 키우기</h2>
+      <p class="desc">반 전체가 함께 칭찬을 모아 캐릭터를 5단계까지 성장시키는 학급 운영 게임</p>
+      <span class="more">메뉴얼 보기 →</span>
     </a>
 
     <a class="card card-roles" href="roles.html">
-      <div class="card-emoji">👥</div>
-      <div class="card-body">
-        <span class="card-tag">1인1역 관리</span>
-        <h2>우리 반 1인1역</h2>
-        <p class="desc">매일 1인1역 활동을 한 번의 클릭으로 체크하고, 1년 동안의 활동을 역할별·학생별로 한눈에 확인. 생활기록부 작성에도 활용 가능.</p>
-        <div class="card-actions">
-          <span class="btn-manual">📖 메뉴얼 보기</span>
-          <a class="btn-tool" href="https://miynuees.github.io/class-roles-tool/" target="_blank" onclick="event.stopPropagation()">🔗 도구 열기</a>
-        </div>
-      </div>
+      <div class="card-icon">👥</div>
+      <h2>우리 반 1인1역</h2>
+      <p class="desc">매일 1인1역 활동을 한 번의 클릭으로 체크하고 1년 동안의 기록을 한눈에</p>
+      <span class="more">메뉴얼 보기 →</span>
     </a>
 
     <a class="card card-cleaning" href="cleaning.html">
-      <div class="card-emoji">🧹</div>
-      <div class="card-body">
-        <span class="card-tag">청소 역할 분배</span>
-        <h2>청소 역할 뽑기</h2>
-        <p class="desc">청소 시간에 학생들이 카드를 뽑아 자기 역할을 정하고, 끝낸 사람은 카드를 탭해 진행률을 함께 확인. 완료 시 폭죽 연출까지!</p>
-        <div class="card-actions">
-          <span class="btn-manual">📖 메뉴얼 보기</span>
-          <a class="btn-tool" href="https://miynuees.github.io/cleaning-role-picker/" target="_blank" onclick="event.stopPropagation()">🔗 도구 열기</a>
-        </div>
-      </div>
+      <div class="card-icon">🧹</div>
+      <h2>청소 역할 뽑기</h2>
+      <p class="desc">청소 시간 역할을 카드 뽑기로 정하고 진행률을 함께 체크하는 도구</p>
+      <span class="more">메뉴얼 보기 →</span>
     </a>
 
   </div>
 
-  <div class="info-section">
-    <div class="icon">💡</div>
-    <div class="text">
-      <strong>모든 도구는 설치 없이 브라우저로 바로 쓸 수 있어요.</strong><br>
-      전자칠판(크롬·엣지)에서 주소창에 도구 URL만 넣으면 끝! 데이터는 우리 반 전자칠판 안에만 저장되어서 다른 학급과 섞이지 않고, 개인정보가 외부로 새어나갈 걱정도 없어요.
-    </div>
-  </div>
-
   <div class="footer">
-    교실의 매일이 조금 더 즐겁고 따뜻해지기를 <span class="heart">♥</span>
-    <div class="made">선생님이 직접 쓰면서 다듬은 학급 운영 도구 모음 · 자유롭게 공유해 주세요</div>
+    교실의 매일이 조금 더 즐겁기를<span class="divider"></span>made with ♥
   </div>
 
 </div>
