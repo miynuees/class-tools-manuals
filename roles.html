@@ -294,30 +294,6 @@ body {
   color: var(--coral);
 }
 
-.back-btn {
-  position: fixed;
-  top: 30px;
-  left: 30px;
-  background: white;
-  color: var(--primary-dark);
-  border: 2px solid var(--primary);
-  padding: 11px 22px;
-  border-radius: 30px;
-  font-family: 'Jua', sans-serif;
-  font-size: 0.98rem;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(79, 181, 133, 0.25);
-  text-decoration: none;
-  transition: all 0.2s;
-  z-index: 100;
-}
-
-.back-btn:hover {
-  transform: translateY(-2px);
-  background: var(--primary-bg);
-  box-shadow: 0 6px 20px rgba(79, 181, 133, 0.35);
-}
-
 .print-btn {
   position: fixed;
   bottom: 30px;
@@ -344,7 +320,6 @@ body {
   body { background: white; padding: 0; }
   .page { box-shadow: none; border-radius: 0; }
   .print-btn { display: none; }
-  .back-btn { display: none; }
 
   .print-page { page-break-before: always; }
   .print-page:first-of-type { page-break-before: avoid; }
@@ -395,8 +370,6 @@ body {
 </style>
 </head>
 <body>
-
-<a class="back-btn" href="index.html">← 메뉴얼 모음</a>
 
 <div class="page">
   <div class="cover">
